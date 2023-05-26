@@ -1,27 +1,5 @@
 # Advent of code rust 2022
 
-- [ ] day 1
-- [ ] day 2
-- [ ] day 3
-- [ ] day 4
-- [ ] day 5
-- [ ] day 6
-- [ ] day 7
-- [ ] day 8
-- [ ] day 9
-- [ ] day 10
-- [ ] day 11
-- [ ] day 12
-- [ ] day 13
-- [ ] day 14
-- [ ] day 15
-- [ ] day 16
-- [ ] day 17
-- [ ] day 18
-- [ ] day 19
-- [ ] day 20
-- [ ] day 21
-- [ ] day 22
-- [ ] day 23
-- [ ] day 24
-- [ ] day 25
+This is a project which contains my solutions for the [Advent of Code](https://adventofcode.com/) challenges.
+
+I am using this thing to start learning Rust. I am not a Rust expert, so if you see something that can be improved, please let me know.
