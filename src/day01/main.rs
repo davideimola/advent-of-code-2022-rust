@@ -1,4 +1,5 @@
 use std::cmp::Ordering;
+
 use nom::character::complete;
 use nom::character::complete::newline;
 use nom::IResult;
@@ -28,9 +29,9 @@ fn find_top_3_max_calories(elves: &[Elf]) -> Option<u32> {
     Some(res)
 }
 
-#[derive(Debug,Clone)]
+#[derive(Debug, Clone)]
 struct Elf {
-    calories: Vec<u32>
+    calories: Vec<u32>,
 }
 
 impl Elf {
@@ -60,6 +61,7 @@ fn parse_elves(s: &str) -> IResult<&str, Vec<Elf>> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
     fn top_elf() {
         let input = include_str!("./sample.txt");

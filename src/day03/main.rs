@@ -26,7 +26,7 @@ fn char_to_u32(c: &char) -> u32 {
 
 fn parse_line(input: &str) -> IResult<&str, (&str, &str)> {
     let (input, line) = alphanumeric1(input)?;
-    let mid = line.len()/2;
+    let mid = line.len() / 2;
     let left = &line[..mid];
     let right = &line[mid..];
     Ok((input, (left, right)))
@@ -72,6 +72,7 @@ fn find_total_priorities_for_3_badges(input: &str) -> IResult<&str, u32> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
     fn total_priorities() {
         let input = include_str!("./sample.txt");

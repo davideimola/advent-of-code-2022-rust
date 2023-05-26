@@ -9,24 +9,24 @@ fn main() {
     let (res, games) = parse_games(input).unwrap();
     assert_eq!(res, "");
 
-    let total_score = games.iter().map(|(a,b)| b.game_score(a)).sum::<i32>();
+    let total_score = games.iter().map(|(a, b)| b.game_score(a)).sum::<i32>();
     println!("Total score: {}", total_score);
 
     let (res, games) = parse_games_v2(input).unwrap();
     assert_eq!(res, "");
 
-    let total_score = games.iter().map(|(a,b)| b.game_score(a)).sum::<i32>();
+    let total_score = games.iter().map(|(a, b)| b.game_score(a)).sum::<i32>();
     println!("Total score V2: {}", total_score);
 }
 
-#[derive(Copy,Debug,Clone,PartialEq)]
+#[derive(Copy, Debug, Clone, PartialEq)]
 enum PlayChoice {
     Rock = 1,
     Paper = 2,
     Scissors = 3,
 }
 
-#[derive(Copy,Debug,Clone,PartialEq)]
+#[derive(Copy, Debug, Clone, PartialEq)]
 enum GameOutcome {
     Lose = 0,
     Tie = 3,
@@ -118,7 +118,7 @@ impl PlayChoice {
     fn response_for_outcome(&self, outcome: GameOutcome) -> Self {
         match outcome {
             GameOutcome::Tie => *self,
-            GameOutcome::Win =>  match self {
+            GameOutcome::Win => match self {
                 PlayChoice::Rock => PlayChoice::Paper,
                 PlayChoice::Paper => PlayChoice::Scissors,
                 PlayChoice::Scissors => PlayChoice::Rock,
@@ -132,7 +132,7 @@ impl PlayChoice {
     }
 }
 
-fn parse_games(input: &str) -> IResult<&str, Vec<(PlayChoice,PlayChoice)>> {
+fn parse_games(input: &str) -> IResult<&str, Vec<(PlayChoice, PlayChoice)>> {
     separated_list1(newline, PlayChoice::parse_pair)(input)
 }
 
@@ -143,6 +143,7 @@ fn parse_games_v2(input: &str) -> IResult<&str, Vec<(PlayChoice, PlayChoice)>> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
     fn total_score() {
         let input = include_str!("./sample.txt");
@@ -152,7 +153,7 @@ mod tests {
         assert_eq!(games.len(), 3);
         assert_eq!(games[0], (PlayChoice::Rock, PlayChoice::Paper));
 
-        let total_score = games.iter().map(|(a,b)| b.game_score(a)).sum::<i32>();
+        let total_score = games.iter().map(|(a, b)| b.game_score(a)).sum::<i32>();
         assert_eq!(total_score, 15);
     }
 
@@ -165,7 +166,7 @@ mod tests {
         assert_eq!(games.len(), 3);
         assert_eq!(games[0], (PlayChoice::Rock, PlayChoice::Rock));
 
-        let total_score = games.iter().map(|(a,b)| b.game_score(a)).sum::<i32>();
+        let total_score = games.iter().map(|(a, b)| b.game_score(a)).sum::<i32>();
         assert_eq!(total_score, 12);
     }
 }
